@@ -8,4 +8,5 @@ apps/backend/.cache
 apps/desktop/src-tauri/target
 apps/desktop/src-tauri/gen
 *.log
+*.tsbuildinfo
 .DS_Store

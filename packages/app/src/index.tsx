@@ -25,6 +25,12 @@ export type SharedAppProps = {
   title?: string;
 };
 
+type SharedAppShellProps = {
+  client: K8sApiClient;
+  platform: 'desktop' | 'web' | 'mobile';
+  title: string;
+};
+
 export function SharedApp({ client, platform, title = 'Kubernetes IDE' }: SharedAppProps) {
   const queryClient = useMemo(() => createK8sIdeQueryClient(), []);
 
@@ -35,7 +41,7 @@ export function SharedApp({ client, platform, title = 'Kubernetes IDE' }: Shared
   );
 }
 
-function SharedAppShell({ client, platform, title }: SharedAppProps) {
+function SharedAppShell({ client, platform, title }: SharedAppShellProps) {
   const queryClient = useQueryClient();
   const {
     currentContext,
@@ -80,6 +86,9 @@ function SharedAppShell({ client, platform, title }: SharedAppProps) {
     }
 
     const current = contextsQuery.data.find((context) => context.isCurrent) ?? contextsQuery.data[0];
+    if (!current) {
+      return;
+    }
     setCurrentContext(current.name);
     if (current.namespace) {
       setCurrentNamespace(current.namespace);
@@ -95,6 +104,9 @@ function SharedAppShell({ client, platform, title }: SharedAppProps) {
   useEffect(() => {
     if (!selected && discoveryQuery.data && discoveryQuery.data.length > 0) {
       const first = discoveryQuery.data[0];
+      if (!first) {
+        return;
+      }
       setSelected({
         group: first.group,
         version: first.version,

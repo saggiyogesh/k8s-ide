@@ -346,13 +346,16 @@ func (e *Engine) ApplyYAML(request ApplyRequest) (ApplyResult, error) {
 		}
 
 		namespace := object.GetNamespace()
-		resourceClient := client.Resource(mapping.Resource)
+		namespaceableClient := client.Resource(mapping.Resource)
+		var resourceClient dynamic.ResourceInterface
 		if mapping.Scope.Name() == apimeta.RESTScopeNameNamespace {
 			if namespace == "" {
 				namespace = defaultNamespace
 				object.SetNamespace(namespace)
 			}
-			resourceClient = resourceClient.Namespace(namespace)
+			resourceClient = namespaceableClient.Namespace(namespace)
+		} else {
+			resourceClient = namespaceableClient
 		}
 
 		payload, err := json.Marshal(object.Object)

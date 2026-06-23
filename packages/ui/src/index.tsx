@@ -191,6 +191,9 @@ export function ResourceTable<T>({
         <div style={{ height: `${virtualizer.getTotalSize()}px`, position: 'relative' }}>
           {virtualizer.getVirtualItems().map((virtualRow) => {
             const row = rows[virtualRow.index];
+            if (!row) {
+              return null;
+            }
             const key = getRowKey(row);
             const selected = key === selectedRowKey;
             return (

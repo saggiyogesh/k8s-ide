@@ -5,11 +5,7 @@
     "rootDir": "src",
     "outDir": "dist"
   },
-  "references": [
-    { "path": "../api-client" },
-    { "path": "../core" },
-    { "path": "../store" },
-    { "path": "../ui" }
-  ],
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
