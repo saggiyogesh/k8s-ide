@@ -1,0 +1,28 @@
+node_modules
+dist
+.turbo
+*.local
+.env
+.env.*
+!.env.example
+
+# Go
+apps/backend/bin/
+apps/backend/*.test
+apps/backend/vendor/
+
+# Tauri
+apps/desktop/src-tauri/target/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.tsbuildinfo
