@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": true
+  },
+  "references": [
+    { "path": "../../packages/app" },
+    { "path": "../../packages/api-client" },
+    { "path": "../../packages/store" }
+  ],
+  "include": ["src"]
+}

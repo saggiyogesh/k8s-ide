@@ -1,0 +1,36 @@
+node_modules
+dist
+build
+.turbo
+*.local
+.env*
+!.env.example
+
+# Go
+apps/backend/bin/
+apps/backend/vendor/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Tauri
+apps/desktop/src-tauri/target/
+apps/desktop/src-tauri/WixTools/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Turbo
+.turbo
