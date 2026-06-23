@@ -1,0 +1,10 @@
+{
+  "name": "Kubernetes IDE",
+  "short_name": "K8s IDE",
+  "description": "Single-user Kubernetes IDE built from one shared React shell and one Go backend.",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "start_url": "/",
+  "icons": []
+}

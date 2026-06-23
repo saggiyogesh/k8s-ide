@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "sourceMap": true,
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@k8s-ide/core": ["packages/core/src"],
+      "@k8s-ide/api-client": ["packages/api-client/src"],
+      "@k8s-ide/store": ["packages/store/src"],
+      "@k8s-ide/ui": ["packages/ui/src"],
+      "@k8s-ide/app": ["packages/app/src"]
+    }
+  }
+}

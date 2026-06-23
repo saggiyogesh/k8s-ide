@@ -1,0 +1,26 @@
+{
+  "name": "@k8s-ide/store",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@k8s-ide/api-client": "workspace:*",
+    "@k8s-ide/core": "workspace:*",
+    "@tanstack/react-query": "^5.101.1",
+    "zustand": "^5.0.14"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.turbo
+coverage
+.DS_Store
+apps/backend/bin
+apps/web/.vite
+apps/desktop/.vite
+apps/desktop/src-tauri/target
