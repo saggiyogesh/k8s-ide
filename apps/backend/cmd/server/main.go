@@ -18,7 +18,7 @@ func main() {
 	}
 
 	sessionService := session.NewService()
-	watchManager := watchpkg.NewManager()
+	watchManager := watchpkg.NewManager[k8s.WatchEvent]()
 	engine := k8s.NewEngine(sessionService, watchManager)
 	server := api.NewServer(engine)
 

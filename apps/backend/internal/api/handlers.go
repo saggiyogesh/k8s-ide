@@ -242,9 +242,9 @@ func (s *Server) handleWatch(w http.ResponseWriter, r *http.Request) {
 			}
 		case tick := <-ticker.C:
 			if err := connection.WriteJSON(k8s.WatchEvent{
-				Type: "BOOKMARK",
-				Ref:  k8s.ResourceRef{Group: group, Version: version, Resource: resource, Namespace: namespace},
-				Message: "watch heartbeat",
+				Type:            "BOOKMARK",
+				Ref:             k8s.ResourceRef{Group: group, Version: version, Resource: resource, Namespace: namespace},
+				Message:         "watch heartbeat",
 				ResourceVersion: strconv.FormatInt(tick.Unix(), 10),
 			}); err != nil {
 				return

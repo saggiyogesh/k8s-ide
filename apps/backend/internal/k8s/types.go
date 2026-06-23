@@ -37,15 +37,15 @@ type ResourceRef struct {
 }
 
 type KubeResource struct {
-	Ref        ResourceRef         `json:"ref"`
-	Kind       string              `json:"kind"`
-	APIVersion string              `json:"apiVersion"`
-	Metadata   ResourceMetadata    `json:"metadata"`
-	Spec       map[string]any      `json:"spec"`
-	Status     map[string]any      `json:"status"`
-	Summary    map[string]any      `json:"summary"`
-	YAML       string              `json:"yaml"`
-	Phase      string              `json:"phase"`
+	Ref        ResourceRef      `json:"ref"`
+	Kind       string           `json:"kind"`
+	APIVersion string           `json:"apiVersion"`
+	Metadata   ResourceMetadata `json:"metadata"`
+	Spec       map[string]any   `json:"spec"`
+	Status     map[string]any   `json:"status"`
+	Summary    map[string]any   `json:"summary"`
+	YAML       string           `json:"yaml"`
+	Phase      string           `json:"phase"`
 }
 
 type ResourceMetadata struct {
@@ -90,11 +90,11 @@ type ActionResult struct {
 }
 
 type WatchEvent struct {
-	Type            string       `json:"type"`
-	Ref             ResourceRef  `json:"ref"`
+	Type            string        `json:"type"`
+	Ref             ResourceRef   `json:"ref"`
 	Resource        *KubeResource `json:"resource,omitempty"`
-	ResourceVersion string       `json:"resourceVersion,omitempty"`
-	Message         string       `json:"message,omitempty"`
+	ResourceVersion string        `json:"resourceVersion,omitempty"`
+	Message         string        `json:"message,omitempty"`
 }
 
 type ExecSession struct {

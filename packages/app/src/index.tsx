@@ -10,7 +10,6 @@ import {
 import { HttpK8sApiClient } from '@k8s-ide/api-client';
 import type {
   ActionResult,
-  ApiResourceDescriptor,
   KubeResource,
   ResourceActionRequest,
   ResourceRef,
@@ -123,7 +122,7 @@ function K8sIdeShell({ platform, defaultApiBaseUrl }: K8sIdeAppProps) {
 
   const discoveryQuery = useQuery({
     queryKey: queryKeys.discovery,
-    queryFn: () => api.getDiscovery() as Promise<ApiResourceDescriptor[]>,
+    queryFn: () => api.getDiscovery(),
     enabled: backendHealthy,
   });
 

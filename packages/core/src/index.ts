@@ -80,9 +80,9 @@ export interface ListResourcesOptions {
   labelSelector?: string;
 }
 
-export interface GetResourceOptions extends ResourceRef {}
+export type GetResourceOptions = ResourceRef;
 
-export interface DeleteResourceOptions extends ResourceRef {}
+export type DeleteResourceOptions = ResourceRef;
 
 export interface ApplyResult {
   applied: ResourceRef[];

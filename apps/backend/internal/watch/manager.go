@@ -3,27 +3,25 @@ package watch
 import (
 	"context"
 	"sync"
-
-	"github.com/cursor/k8s-ide/apps/backend/internal/k8s"
 )
 
-type Manager struct {
+type Manager[T any] struct {
 	mu          sync.RWMutex
-	subscribers map[string]map[chan k8s.WatchEvent]struct{}
+	subscribers map[string]map[chan T]struct{}
 }
 
-func NewManager() *Manager {
-	return &Manager{
-		subscribers: map[string]map[chan k8s.WatchEvent]struct{}{},
+func NewManager[T any]() *Manager[T] {
+	return &Manager[T]{
+		subscribers: map[string]map[chan T]struct{}{},
 	}
 }
 
-func (m *Manager) Subscribe(ctx context.Context, key string) <-chan k8s.WatchEvent {
-	ch := make(chan k8s.WatchEvent, 8)
+func (m *Manager[T]) Subscribe(ctx context.Context, key string) <-chan T {
+	ch := make(chan T, 8)
 
 	m.mu.Lock()
 	if _, ok := m.subscribers[key]; !ok {
-		m.subscribers[key] = map[chan k8s.WatchEvent]struct{}{}
+		m.subscribers[key] = map[chan T]struct{}{}
 	}
 	m.subscribers[key][ch] = struct{}{}
 	m.mu.Unlock()
@@ -42,7 +40,7 @@ func (m *Manager) Subscribe(ctx context.Context, key string) <-chan k8s.WatchEve
 	return ch
 }
 
-func (m *Manager) Publish(key string, event k8s.WatchEvent) {
+func (m *Manager[T]) Publish(key string, event T) {
 	m.mu.RLock()
 	defer m.mu.RUnlock()
 

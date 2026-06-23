@@ -17,16 +17,16 @@ import (
 const backendVersion = "0.1.0"
 
 type Engine struct {
-	mu          sync.RWMutex
-	session     *session.Service
-	watches     *watchpkg.Manager
-	discovery   []ApiResourceDescriptor
-	byKind      map[string]ApiResourceDescriptor
-	byResource  map[string]ApiResourceDescriptor
-	resources   map[string][]KubeResource
+	mu         sync.RWMutex
+	session    *session.Service
+	watches    *watchpkg.Manager[WatchEvent]
+	discovery  []ApiResourceDescriptor
+	byKind     map[string]ApiResourceDescriptor
+	byResource map[string]ApiResourceDescriptor
+	resources  map[string][]KubeResource
 }
 
-func NewEngine(sessionService *session.Service, watchManager *watchpkg.Manager) *Engine {
+func NewEngine(sessionService *session.Service, watchManager *watchpkg.Manager[WatchEvent]) *Engine {
 	engine := &Engine{
 		session:    sessionService,
 		watches:    watchManager,
@@ -46,7 +46,23 @@ func NewEngine(sessionService *session.Service, watchManager *watchpkg.Manager) 
 }
 
 func (e *Engine) ListContexts() ([]ClusterContext, error) {
-	return e.session.ListContexts()
+	contexts, err := e.session.ListContexts()
+	if err != nil {
+		return nil, err
+	}
+
+	output := make([]ClusterContext, 0, len(contexts))
+	for _, item := range contexts {
+		output = append(output, ClusterContext{
+			Name:      item.Name,
+			Cluster:   item.Cluster,
+			User:      item.User,
+			Namespace: item.Namespace,
+			IsCurrent: item.IsCurrent,
+		})
+	}
+
+	return output, nil
 }
 
 func (e *Engine) OpenSession(contextName, namespace string) (SessionInfo, error) {
@@ -73,7 +89,12 @@ func (e *Engine) OpenSession(contextName, namespace string) (SessionInfo, error)
 			ConnectedAt:    time.Now().UTC().Format(time.RFC3339),
 			BackendVersion: backendVersion,
 		}
-		e.session.SetSession(sessionInfo)
+		e.session.SetSession(session.SessionState{
+			Context:        sessionInfo.Context,
+			Namespace:      sessionInfo.Namespace,
+			ConnectedAt:    sessionInfo.ConnectedAt,
+			BackendVersion: sessionInfo.BackendVersion,
+		})
 		return sessionInfo, nil
 	}
 

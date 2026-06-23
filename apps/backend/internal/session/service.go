@@ -6,20 +6,19 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/cursor/k8s-ide/apps/backend/internal/k8s"
 	"sigs.k8s.io/yaml"
 )
 
 type Service struct {
 	mu      sync.RWMutex
-	session *k8s.SessionInfo
+	session *SessionState
 }
 
 func NewService() *Service {
 	return &Service{}
 }
 
-func (s *Service) ListContexts() ([]k8s.ClusterContext, error) {
+func (s *Service) ListContexts() ([]ContextInfo, error) {
 	configPath, err := resolveKubeconfigPath()
 	if err != nil {
 		return demoContexts(), nil
@@ -35,9 +34,9 @@ func (s *Service) ListContexts() ([]k8s.ClusterContext, error) {
 		return demoContexts(), nil
 	}
 
-	contexts := make([]k8s.ClusterContext, 0, len(config.Contexts))
+	contexts := make([]ContextInfo, 0, len(config.Contexts))
 	for _, item := range config.Contexts {
-		contexts = append(contexts, k8s.ClusterContext{
+		contexts = append(contexts, ContextInfo{
 			Name:      item.Name,
 			Cluster:   item.Context.Cluster,
 			User:      item.Context.User,
@@ -53,7 +52,7 @@ func (s *Service) ListContexts() ([]k8s.ClusterContext, error) {
 	return contexts, nil
 }
 
-func (s *Service) SetSession(session k8s.SessionInfo) {
+func (s *Service) SetSession(session SessionState) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
@@ -61,7 +60,7 @@ func (s *Service) SetSession(session k8s.SessionInfo) {
 	s.session = &copy
 }
 
-func (s *Service) CurrentSession() (*k8s.SessionInfo, error) {
+func (s *Service) CurrentSession() (*SessionState, error) {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 
@@ -73,8 +72,8 @@ func (s *Service) CurrentSession() (*k8s.SessionInfo, error) {
 	return &copy, nil
 }
 
-func demoContexts() []k8s.ClusterContext {
-	return []k8s.ClusterContext{
+func demoContexts() []ContextInfo {
+	return []ContextInfo{
 		{
 			Name:      "local-demo",
 			Cluster:   "demo",
@@ -83,6 +82,21 @@ func demoContexts() []k8s.ClusterContext {
 			IsCurrent: true,
 		},
 	}
+}
+
+type ContextInfo struct {
+	Name      string
+	Cluster   string
+	User      string
+	Namespace string
+	IsCurrent bool
+}
+
+type SessionState struct {
+	Context        string
+	Namespace      string
+	ConnectedAt    string
+	BackendVersion string
 }
 
 type kubeconfigFile struct {
