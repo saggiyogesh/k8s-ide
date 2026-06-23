@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+.turbo
+.pnpm-store
+coverage
+*.log
+.DS_Store
+
+apps/backend/bin
+apps/backend/.cache
+apps/backend/coverage.out
+
+apps/desktop/src-tauri/target

@@ -1,0 +1,10 @@
+{
+  "name": "@k8s-ide/config-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./base": "./base.json",
+    "./react-app": "./react-app.json",
+    "./react-library": "./react-library.json"
+  }
+}

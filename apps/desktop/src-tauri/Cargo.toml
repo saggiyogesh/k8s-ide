@@ -1,0 +1,16 @@
+[package]
+name = "k8s-ide-desktop"
+version = "0.1.0"
+description = "Desktop shell for the Kubernetes IDE monorepo"
+authors = ["Cursor Agent"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+tauri = { version = "2", features = [] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

@@ -1,0 +1,10 @@
+{
+  "extends": "../../packages/config-typescript/react-app.json",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vite.config.ts",
+    "../../packages/**/*.ts",
+    "../../packages/**/*.tsx"
+  ]
+}

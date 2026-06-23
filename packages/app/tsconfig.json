@@ -1,0 +1,15 @@
+{
+  "extends": "../config-typescript/react-library.json",
+  "compilerOptions": {
+    "rootDir": ".."
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "../api-client/src/**/*.ts",
+    "../core/src/**/*.ts",
+    "../store/src/**/*.ts",
+    "../ui/src/**/*.ts",
+    "../ui/src/**/*.tsx"
+  ]
+}
