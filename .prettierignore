@@ -1,0 +1,5 @@
+dist
+build
+.turbo
+node_modules
+apps/desktop/src-tauri/target

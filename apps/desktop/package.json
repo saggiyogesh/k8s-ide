@@ -1,0 +1,25 @@
+{
+  "name": "@k8s-ide/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --port 1420 --strictPort",
+    "desktop:build": "tauri build",
+    "desktop:dev": "tauri dev",
+    "lint": "eslint src --ext .ts,.tsx && eslint vite.config.ts",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@k8s-ide/app": "workspace:*",
+    "@tauri-apps/api": "^2.8.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.8.2",
+    "@vitejs/plugin-react": "^5.0.2",
+    "vite": "^7.0.6"
+  }
+}

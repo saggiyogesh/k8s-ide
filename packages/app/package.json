@@ -1,0 +1,28 @@
+{
+  "name": "@k8s-ide/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "exports": {
+    ".": {
+      "types": "./src/index.tsx",
+      "default": "./src/index.tsx"
+    }
+  },
+  "dependencies": {
+    "@k8s-ide/api-client": "workspace:*",
+    "@k8s-ide/core": "workspace:*",
+    "@k8s-ide/store": "workspace:*",
+    "@k8s-ide/ui": "workspace:*",
+    "@tanstack/react-query": "^5.83.0",
+    "@tanstack/react-router": "^1.130.14",
+    "react": "^19.1.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --ext .tsx",
+    "typecheck": "tsc -b"
+  }
+}
