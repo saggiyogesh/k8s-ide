@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Kubernetes IDE",
+  "version": "0.1.0",
+  "identifier": "com.k8side.desktop",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:3001"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Kubernetes IDE",
+        "width": 1440,
+        "height": 960,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all"
+  }
+}
