@@ -1,0 +1,7 @@
+{
+  "extends": "@k8s-ide/tsconfig/base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}

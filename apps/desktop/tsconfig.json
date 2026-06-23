@@ -1,0 +1,7 @@
+{
+  "extends": "@k8s-ide/tsconfig/react.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src"]
+}

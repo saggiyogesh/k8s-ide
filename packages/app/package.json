@@ -1,0 +1,41 @@
+{
+  "name": "@k8s-ide/app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@k8s-ide/api-client": "workspace:*",
+    "@k8s-ide/core": "workspace:*",
+    "@k8s-ide/store": "workspace:*",
+    "@k8s-ide/ui": "workspace:*",
+    "@tanstack/react-query": "^5.80.7",
+    "@tanstack/react-router": "^1.121.16",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@k8s-ide/eslint-config": "workspace:*",
+    "@k8s-ide/tsconfig": "workspace:*",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "eslint": "^9.28.0",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@k8s-ide/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./src/styles.css"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@k8s-ide/core": "workspace:*",
+    "@k8s-ide/store": "workspace:*",
+    "@monaco-editor/react": "^4.7.0",
+    "@tanstack/react-query": "^5.80.7",
+    "@tanstack/react-virtual": "^3.13.10",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.514.0",
+    "react": "^19.1.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@k8s-ide/eslint-config": "workspace:*",
+    "@k8s-ide/tsconfig": "workspace:*",
+    "@types/react": "^19.1.8",
+    "eslint": "^9.28.0",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  }
+}

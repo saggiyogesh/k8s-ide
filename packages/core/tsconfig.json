@@ -1,0 +1,4 @@
+{
+  "extends": "@k8s-ide/tsconfig/base.json",
+  "include": ["src"]
+}
