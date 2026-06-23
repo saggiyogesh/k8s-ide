@@ -4,6 +4,7 @@ dist
 build
 coverage
 *.log
+*.tsbuildinfo
 
 apps/desktop/src-tauri/target
 apps/desktop/src-tauri/gen
