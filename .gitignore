@@ -2,9 +2,11 @@ node_modules
 dist
 build
 .turbo
+*.tsbuildinfo
 coverage
 *.log
 .DS_Store
+apps/backend/server
 apps/desktop/src-tauri/target
 apps/desktop/src-tauri/gen
 apps/desktop/src-tauri/Cargo.lock
