@@ -10,10 +10,10 @@
     "react-dom": "^19.2.7"
   },
   "scripts": {
-    "build": "vite build && cargo check --manifest-path src-tauri/Cargo.toml",
+    "build": "vite build && PATH=/usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH RUSTC=/usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc RUSTDOC=/usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustdoc /usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo check --manifest-path src-tauri/Cargo.toml",
     "dev": "tauri dev",
     "lint": "eslint .",
-    "typecheck": "tsc -p tsconfig.json --noEmit && cargo check --manifest-path src-tauri/Cargo.toml"
+    "typecheck": "tsc -p tsconfig.json --noEmit && PATH=/usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH RUSTC=/usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc RUSTDOC=/usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustdoc /usr/local/rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo check --manifest-path src-tauri/Cargo.toml"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.1",

@@ -112,7 +112,7 @@ export class HttpK8sApiClient implements K8sApiClient {
     if (opts.namespace) {
       search.set('namespace', opts.namespace);
     }
-    for (const [key, value] of Object.entries(opts.selectors ?? {})) {
+    for (const [key, value] of Object.entries(opts.selectors ?? {}) as Array<[string, string | undefined]>) {
       if (value) {
         search.set(key, value);
       }

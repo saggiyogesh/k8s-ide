@@ -98,7 +98,7 @@ export interface GetOpts {
   namespace?: string;
 }
 
-export interface DeleteOpts extends GetOpts {}
+export type DeleteOpts = GetOpts;
 
 export interface WatchOpts {
   group: string;

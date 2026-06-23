@@ -7,11 +7,11 @@
     "jsx": "react-jsx",
     "strict": true,
     "skipLibCheck": true,
+            "ignoreDeprecations": "6.0",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "@k8s-ide/core": ["packages/core/src/index.ts"],

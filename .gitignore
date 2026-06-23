@@ -3,6 +3,7 @@ dist
 .turbo
 .pnpm-store
 coverage
+*.tsbuildinfo
 apps/backend/bin
 apps/backend/.cache
 apps/desktop/src-tauri/target
