@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+  --bg: #0b1020;
+  --panel: #121a2e;
+  --panel-elevated: #1a2440;
+  --border: #2a3555;
+  --text: #e8edf8;
+  --muted: #9aa8c7;
+  --accent: #4f8cff;
+  --accent-soft: rgba(79, 140, 255, 0.15);
+  --danger: #ff6b7a;
+  --success: #3ecf8e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.k8s-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.k8s-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--panel-elevated);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+}
+
+.k8s-button:hover {
+  border-color: var(--accent);
+}
+
+.k8s-button-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.k8s-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--panel-elevated);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+.k8s-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.k8s-muted {
+  color: var(--muted);
+}
+
+.k8s-scroll {
+  overflow: auto;
+}
+
+.k8s-table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr 0.8fr;
+  gap: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.k8s-table-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.k8s-table-row-selected {
+  background: var(--accent-soft);
+}
+
+.k8s-yaml-editor {
+  width: 100%;
+  min-height: 420px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  border: 1px solid var(--border);
+  background: #0d1428;
+  color: #d7e3ff;
+  border-radius: 12px;
+  padding: 1rem;
+  resize: vertical;
+}
+
+@media (max-width: 900px) {
+  .k8s-explorer-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
