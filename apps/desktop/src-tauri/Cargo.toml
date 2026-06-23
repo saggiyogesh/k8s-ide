@@ -1,0 +1,10 @@
+[package]
+name = "k8s-ide-desktop"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tauri = "2.11.3"
+
+[build-dependencies]
+tauri-build = "2.6.3"

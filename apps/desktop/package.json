@@ -1,0 +1,25 @@
+{
+  "name": "@k8s-ide/desktop",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@k8s-ide/app": "workspace:*",
+    "@tauri-apps/api": "^2.11.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "scripts": {
+    "build": "vite build && cargo check --manifest-path src-tauri/Cargo.toml",
+    "dev": "tauri dev",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit && cargo check --manifest-path src-tauri/Cargo.toml"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "@tauri-apps/cli": "^2.11.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "tailwindcss": "^4.3.1",
+    "vite": "^8.0.16"
+  }
+}
