@@ -1,0 +1,25 @@
+{
+  "name": "@k8s-ide/store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -b tsconfig.json",
+    "lint": "eslint src --ext .ts",
+    "test": "echo \"No tests yet for @k8s-ide/store\""
+  },
+  "dependencies": {
+    "@k8s-ide/core": "workspace:*",
+    "@tanstack/react-query": "^5.101.1",
+    "zustand": "^5.0.14"
+  }
+}

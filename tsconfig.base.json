@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@k8s-ide/core": ["./packages/core/src/index.ts"],
+      "@k8s-ide/api-client": ["./packages/api-client/src/index.ts"],
+      "@k8s-ide/store": ["./packages/store/src/index.ts"],
+      "@k8s-ide/ui": ["./packages/ui/src/index.tsx"],
+      "@k8s-ide/app": ["./packages/app/src/index.tsx"]
+    },
+    "ignoreDeprecations": "6.0",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "useDefineForClassFields": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true
+  }
+}
