@@ -5,6 +5,7 @@ build
 .pnpm-store
 coverage
 *.log
+*.tsbuildinfo
 .DS_Store
 
 apps/backend/bin
