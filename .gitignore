@@ -3,6 +3,7 @@ node_modules
 dist
 coverage
 .tsbuild
+*.tsbuildinfo
 apps/desktop/src-tauri/target
 apps/desktop/src-tauri/gen
 apps/web/dist
