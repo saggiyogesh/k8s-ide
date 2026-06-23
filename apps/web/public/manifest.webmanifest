@@ -1,0 +1,10 @@
+{
+  "name": "Kubernetes IDE",
+  "short_name": "K8s IDE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#0284c7",
+  "description": "Responsive Kubernetes IDE web and mobile companion",
+  "icons": []
+}

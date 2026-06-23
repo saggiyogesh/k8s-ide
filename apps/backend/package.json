@@ -1,0 +1,12 @@
+{
+  "name": "@k8s-ide/backend",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "go build -o bin/server ./cmd/server",
+    "dev": "go run ./cmd/server",
+    "lint": "go test ./...",
+    "typecheck": "go build ./...",
+    "test": "go test ./..."
+  }
+}
