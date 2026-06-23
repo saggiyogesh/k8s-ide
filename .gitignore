@@ -1,0 +1,10 @@
+node_modules
+.turbo
+dist
+coverage
+.tsbuild
+apps/desktop/src-tauri/target
+apps/desktop/src-tauri/gen
+apps/web/dist
+apps/desktop/dist
+.DS_Store

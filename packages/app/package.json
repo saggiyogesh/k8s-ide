@@ -1,0 +1,25 @@
+{
+  "name": "@k8s-ide/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.tsx"
+  },
+  "dependencies": {
+    "@k8s-ide/api-client": "workspace:*",
+    "@k8s-ide/core": "workspace:*",
+    "@k8s-ide/store": "workspace:*",
+    "@k8s-ide/ui": "workspace:*",
+    "@tanstack/react-query": "^5.101.1",
+    "@tanstack/react-router": "^1.170.16",
+    "react": "^19.2.7",
+    "yaml": "^2.9.0"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc -b",
+    "test": "pnpm exec node -e \"console.log('no tests for @k8s-ide/app yet')\""
+  }
+}

@@ -1,0 +1,35 @@
+[package]
+name = "k8s_ide_desktop"
+version = "0.1.0"
+description = "Tauri shell for the Kubernetes IDE"
+authors = ["Cursor Agent"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "=2.0.0", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+dlopen2 = "=0.7.0"
+dlopen2_derive = "=0.4.1"
+hashbrown = "=0.15.2"
+idna = "=1.0.3"
+idna_adapter = "=1.1.0"
+indexmap = "=2.7.0"
+plist = "=1.7.0"
+serde_with = "=3.11.0"
+serde_with_macros = "=3.11.0"
+tauri = { version = "=2.0.0", default-features = false, features = ["wry", "custom-protocol"] }
+tauri-runtime = "=2.0.0"
+tauri-runtime-wry = "=2.0.0"
+tauri-utils = "=2.0.0"
+time = "=0.3.36"
+toml = "=0.8.23"
+unicode-segmentation = "=1.12.0"
+url = "=2.5.2"
+uuid = "=1.10.0"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

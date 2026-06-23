@@ -1,0 +1,19 @@
+{
+  "name": "@k8s-ide/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@k8s-ide/api-client": "workspace:*",
+    "@k8s-ide/app": "workspace:*",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "lint": "eslint src vite.config.ts --ext .ts,.tsx",
+    "typecheck": "tsc -b",
+    "test": "pnpm exec node -e \"console.log('no tests for @k8s-ide/desktop yet')\""
+  }
+}

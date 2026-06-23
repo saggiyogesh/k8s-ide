@@ -1,0 +1,18 @@
+{
+  "name": "@k8s-ide/api-client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@k8s-ide/core": "workspace:*"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc -b",
+    "test": "pnpm exec node -e \"console.log('no tests for @k8s-ide/api-client yet')\""
+  }
+}
